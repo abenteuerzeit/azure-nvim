@@ -1,0 +1,48 @@
+*az-nvim.txt*
+
+A Neovim plugin to interact with Azurite
+
+==============================================================================
+CONTENTS                                                   *az-nvim-contents*
+
+    1. Introduction............................|az-nvim-introduction|
+    2. Commands................................|az-nvim-commands|
+    3. Configuration...........................|az-nvim-configuration|
+    4. Requirements............................|az-nvim-requirements|
+
+==============================================================================
+INTRODUCTION                                               *az-nvim-introduction*
+
+Azurite is an open-source Azure Storage emulator that simulates most of the
+commands supported by Azure Storage. This Neovim plugin provides a convenient
+way to interact with Azurite from within Neovim.
+
+==============================================================================
+COMMANDS                                                   *az-nvim-commands*
+
+:AzStartAzurite [backend]
+    Starts Azurite using either the Docker image (default) or the NPM
+    package. The `backend` argument is optional and can be `docker` or `npm`.
+
+:AzStopAzurite
+    Stops the running Azurite instance.
+
+:AzCleanAzurite
+    Cleans the Azurite workspace by removing all data.
+
+==============================================================================
+CONFIGURATION                                               *az-nvim-configuration*
+
+By default, the plugin will use the Docker image to run Azurite if available,
+or fallback to the NPM package. You can customize the backend by providing
+the `backend` argument to the `:AzStartAzurite` command (`docker` or `npm`).
+
+The plugin also uses `~/.azurite` as the default workspace location. You can
+modify this by changing the `s:azurite_workspace` variable in
+`autoload/az_nvim.vim`.
+
+==============================================================================
+REQUIREMENTS                                                *az-nvim-requirements*
+
+- Docker (for using the Docker backend)
+- Azurite NPM package (for using the NPM backend)

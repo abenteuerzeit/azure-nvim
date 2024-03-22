@@ -1,7 +1,7 @@
 let s:azurite_job = 0
 let s:azurite_workspace = expand('~/.azurite')
 
-function! azurite#Start(...) abort
+function! az_nvim#StartAzurite(...) abort
     if s:azurite_job != 0
         echohl WarningMsg | echomsg "Azurite is already running" | echohl None
         return
@@ -22,7 +22,7 @@ function! azurite#Start(...) abort
     endif
 endfunction
 
-function! azurite#Stop() abort
+function! az_nvim#StopAzurite() abort
     if s:azurite_job == 0
         echohl WarningMsg | echomsg "Azurite is not running" | echohl None
         return
@@ -33,7 +33,7 @@ function! azurite#Stop() abort
     echohl SuccessMsg | echomsg "Azurite stopped" | echohl None
 endfunction
 
-function! azurite#Clean() abort
+function! az_nvim#CleanAzurite() abort
     if s:azurite_job != 0
         echohl WarningMsg | echomsg "Stop Azurite before cleaning" | echohl None
         return
